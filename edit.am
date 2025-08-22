@@ -1,0 +1,5 @@
+edit = $(SED) \
+	-e 's|@ETHTOOL_SNMPD_PID_FILE[@]|$(ETHTOOL_SNMPD_PID_FILE)|g'
+
+$(TEMPLATES): Makefile
+	$(edit) $(srcdir)/$@.in > $@.tmp && mv $@.tmp $@
